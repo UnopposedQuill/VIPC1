@@ -1,4 +1,7 @@
 
 /*
-Este es el archivo que muestra cómo se colocará el estilo de css
+Este es el archivo que muestra cómo se mostrará el html, usando css
 */
+.visualizacion{
+    background-color: #C7D9D9;
+}

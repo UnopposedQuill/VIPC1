@@ -1,13 +1,20 @@
 ﻿<!DOCTYPE html>
 <!-- Este es el archivo que se utiliza para abrir el contenido -->
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head> <!-- La sección meta información del documento -->
     <meta charset="utf-8" />
+    <!-- Esto define que para el estilo de la página se usará estilo.css -->
+    <link rel="stylesheet" href="estilo.css">
     <title>Primero Proyecto Corto de Visualización de Información</title>
 </head>
 <body>
     <h1>Primer Proyecto Corto</h1>
-    <!-- Esto es para colocar justo aquí el gráfico hecho en d3 -->
+    <!-- Esto es para colocar justo aquí la Visualización hecha en d3 -->
+    <svg width="500" height="800" class="visualizacion"></svg>
+
+    <!-- Para importar la librería de d3 -->
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Para modificar el svg utilizando javascript plano -->
     <script type="text/javascript" src="contenido.js"></script>
 
 </body>
