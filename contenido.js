@@ -16,7 +16,7 @@ var svg = d3.select('svg')
 //Necesito dos escaladores que me permitan escalar los datos en ejecución
 //Uno para el eje X y otro para el eje Y
 var xScale = d3.scaleLinear()
-    .domain([max(d3.min(poblaciones) - 5000, 0), d3.max(poblaciones) + 10])//este 50 es para dejar algo de espacio extra
+    .domain([max(d3.min(poblaciones) - 5000, 0), d3.max(poblaciones) + 5000])//estos 5000 es para dejar algo de espacio extra
     .range([40, svgWidth-30]);
 
 var yScale = d3.scaleLinear()
