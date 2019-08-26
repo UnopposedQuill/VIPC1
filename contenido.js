@@ -30,7 +30,7 @@ Para esto declaro una variable que luego multiplicaré con el tamaño base de la
 Para esto defino una variable que me diga el radio mínimo, el radio máximo, y finalmente el tamaño base.
 */
 var multiplicadorMaximo = 2; //Estas dos variables se podrá modificar en ejecución
-var tamanhoBase = 5;
+var radioBase = 5;
 var radiusScale = d3.scaleLinear()
     .domain([d3.min(densidades), d3.max(densidades)])
     .range([1,multiplicadorMaximo]);
@@ -85,7 +85,7 @@ svg.selectAll("circle")
         return yScale(d.area) - 20;
     })
     .attr("r", function (d) {
-        return tamanhoBase * radiusScale(d.densidad);
+        return radioBase * radiusScale(d.densidad);
     })
     .attr("class", "figure")
     //Ahora que ya todo está en su lugar, agrego
