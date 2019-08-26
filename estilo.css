@@ -2,6 +2,27 @@
 /*
 Este es el archivo que muestra cómo se mostrará el html, usando css
 */
-.visualizacion{
+.body{
+    font-family:sans-serif;
+}
+
+.visualizacion {
     background-color: #C7D9D9;
+}
+
+.figure {
+    fill:orange;
+}
+
+.figure:hover {
+    fill:orangered;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
 }
