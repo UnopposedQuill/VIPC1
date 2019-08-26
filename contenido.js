@@ -1,37 +1,11 @@
 
-//Este archivo define cómo se muestra el contenido del gráfico.
+//Este archivo define cómo se muestra el contenido del gráfico, cuyos datos se encuentran en datos.js.
 
-/*
-Si no coloco la importación de d3 en el html debo colocar esto aquí
-para poder usar D3 aquí
-*/
-//var d3 = require("d3");
-
-//Tengo que colocar las variables del Xlsx suministrado en el repositorio aquí:
-//https://es.wikipedia.org/wiki/Anexo:Cantones_de_Costa_Rica_por_población
-var cantones = [
-    { nombre: "San José", poblacion: 288.054, area: 44.62, densidad: 6445.71 },
-    { nombre: "Alajuela", poblacion: 254.886, area: 388.43, densidad: 656.20 },
-    { nombre: "Desamparados", poblacion: 208.411, area: 118.26, densidad: 1751.31 },
-    { nombre: "San Carlos", poblacion: 163.745, area: 3347.98, densidad: 48.91}];
-
-//Necesito estos 3 arreglos para poder tener los valores máximos de cada uno, así como el valor mínimo
-//de las densidades
-var poblaciones = [];
-var areas = [];
-var densidades = [];
-for (i = 0; i < cantones.length; i++) {
-    poblaciones.push(cantones[i].poblacion);
-    areas.push(cantones[i].area);
-    densidades.push(cantones[i].densidad);
-}
 /*
 Ahora colocar las dimensiones específicas del svg, que es donde dibujaré todo
 SVG significa Scalable Vector Graphics.
 */
-//800 de ancho, 500 de alto//, 5 de relleno a los dos lados de cada barra.
-var svgWidth = 900, svgHeight = 500;//, barPadding = 5;
-//var barWidth = (svgWidth / dataset.length);
+var svgWidth = 900, svgHeight = 500;
 
 //Selecciono el svg
 var svg = d3.select('svg')
@@ -42,13 +16,13 @@ var svg = d3.select('svg')
 //Necesito dos escaladores que me permitan escalar los datos en ejecución
 //Uno para el eje X y otro para el eje Y
 var xScale = d3.scaleLinear()
-    .domain([0, d3.max(poblaciones)])//este 50 es para dejar algo de espacio extra
-    .range([0, svgWidth-50]);
+    .domain([max(d3.min(poblaciones) - 5000, 0), d3.max(poblaciones) + 10])//este 50 es para dejar algo de espacio extra
+    .range([40, svgWidth-30]);
 
 var yScale = d3.scaleLinear()
-    .domain([0, d3.max(areas)])
+    .domain([max(d3.min(areas) - 50, 0), d3.max(areas) + 100])
     //Nótese que el rango en Y es alrevez que el rango en X
-    .range([svgHeight, 30]);
+    .range([svgHeight, 40]);
 
 /*
 Ahora necesito un nuevo escalador para evitar que una burbuja sea insignificantemente pequeña, o gigantesca
@@ -56,7 +30,7 @@ Para esto declaro una variable que luego multiplicaré con el tamaño base de la
 Para esto defino una variable que me diga el radio mínimo, el radio máximo, y finalmente el tamaño base.
 */
 var multiplicadorMaximo = 2; //Estas dos variables se podrá modificar en ejecución
-var tamanhoBase = 15;
+var tamanhoBase = 5;
 var radiusScale = d3.scaleLinear()
     .domain([d3.min(densidades), d3.max(densidades)])
     .range([1,multiplicadorMaximo]);
@@ -81,7 +55,7 @@ svg.append("g")
 var xAxisTranslate = svgHeight - 20;
 
 svg.append("g")
-    .attr("transform", "translate(40, " + xAxisTranslate  +")")
+    .attr("transform", "translate(0, " + xAxisTranslate  +")")
     .call(eje_x);
 
 //Necesito tooltips encima de cada elemento para poder mostrar
@@ -91,7 +65,6 @@ var tip = d3.tip()
     .offset([-10, 0])
     .html(function (d) {
         return "<strong>Cantón:</strong> <span style='color:red'>" + d.nombre + "</span>";
-        //return "Cantón: " + d;
     });
 
 //Aplico los tooltips
@@ -109,10 +82,8 @@ svg.selectAll("circle")
         return yScale(d.area) - 20;
     })
     .attr("r", function (d) {
-        //return d.densidad;
         return tamanhoBase * radiusScale(d.densidad);
     })
-    //.attr("fill", "black")
     .attr("class", "figure")
     //Ahora que ya todo está en su lugar, agrego
     //los tooltips a cada una de las figuras colocadas
