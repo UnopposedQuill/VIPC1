@@ -7,6 +7,8 @@ SVG significa Scalable Vector Graphics.
 */
 var svgWidth = 900, svgHeight = 500;
 
+var tipoDibujo = "burbujas";
+
 //Selecciono el svg
 var svg = d3.select('svg')
     //Modifico sus atributos, para definir todos los tamaños.
@@ -73,7 +75,12 @@ var tip = d3.tip()
 //Aplico los tooltips
 svg.call(tip);
 
-//Ahora finalmente colocar algunos elementos dentro del svg
+/*
+Ahora finalmente colocar algunos elementos dentro del svg
+Para este objetivo definí una función que dibuja todos los elementos
+En el SVG
+*/
+//redibujar();
 svg.selectAll("circle")
     .data(cantones)
     .enter()
@@ -90,5 +97,26 @@ svg.selectAll("circle")
     .attr("class", "figure")
     //Ahora que ya todo está en su lugar, agrego
     //los tooltips a cada una de las figuras colocadas
+    .on("mouseover", tip.show)
+    .on("mouseout", tip.hide);
+
+svg.selectAll("rect")
+    .data(cantones)
+    .enter()
+    .append("rect")
+    .attr("x", function (d) {
+        return xScale(d.poblacion) - 5;
+    })
+    .attr("y", function (d) {
+        return yScale(d.area) - 25;
+    })
+    .attr("width", function (d) {
+        return 10;
+    })
+    .attr("height", function (d) {
+        return 5;
+    })
+    .attr("class", "figure")
+    .attr("visibility", "hidden")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
