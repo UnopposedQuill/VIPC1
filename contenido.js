@@ -64,7 +64,10 @@ var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function (d) {
-        return "<strong>Cantón:</strong> <span style='color:red'>" + d.nombre + "</span>";
+        return "<strong>Cant\u00F3n:</strong> <span style='color:red'>" + d.nombre + "</span> <br>" +
+            "<strong>Poblaci\u00F3n:</strong> <span style='color:red'>" + d.poblacion + " habitantes</span> <br>" +
+            "<strong>\u00C1rea:</strong> <span style='color:red'>" + d.area + " km²</span> <br>" +
+            "<strong>Densidad:</strong> <span style='color:red'>" + d.densidad + " habitantes/km²</span> <br>";
     });
 
 //Aplico los tooltips
