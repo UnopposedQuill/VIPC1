@@ -12,12 +12,22 @@
     <!-- Esto es para colocar justo aquí la Visualización hecha en d3, las
     dimensiones se definieron dentro del archivo de javascript-->
     <svg class="visualizacion"></svg><br>
+    
     <div id="contenedor">
         <input type="radio" name="nombreFigura" , value="Burbujas", class="bubbles", checked />Burbujas
         <input type="radio" name="nombreFigura" , value="Rectángulos", class="rectangules"/>Rectangulos
         <input type="radio" name="nombreFigura" , value="Glifos", class="gliphs"/>Glifos <br>
-        Color de las figuras: <input type="color" name="colorFigura" value="#ff8000" /><br>
-        Tamaño de las figuras: <input type="range" name="tamanhoFigura", value="15" /><br>
+        
+        Color de las figuras: <input type="color" id="CambiadorColor" value="#ff8000" onchange="cambiarColor()" /><br>
+      
+       <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
+
+        Tamaño de las figuras: <input type="range" id="tamanhoFigura" 
+        onchange="cambioTamanno()" , value="15" /><br>
+
+        Tamaño: <label id="lblTamanno"> 15 </label> <br>
+
+
     </div>
 
     <!-- Necesito poder crear diferentes tipos de entradas-->
@@ -29,8 +39,9 @@
     javascript-->
     <button type="button" name="button" onclick="burbujas()">Burbujas</button>
     <button type="button" name="button" onclick="rectangulos()">Rectángulos</button>
-    <button type="button" name="button" onclick="Color()">Glifos</button>
+    <button type="button" name="button" onclick="myFunction()">Glifos</button>
     <button type="button" name="button" onclick="redibujar()">Refrescar</button>
+
 
     <!-- Para importar la librería de d3 -->
     <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
@@ -42,6 +53,8 @@
     <script type="text/javascript" src="funciones.js"></script>
     <!-- Para modificar el svg utilizando javascript plano -->
     <script type="text/javascript" src="contenido.js"></script>
+
+
 
 </body>
 </html>

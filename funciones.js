@@ -82,12 +82,19 @@ function glifos() {
 }
 
 
-function Color(){
-    var temp = document.getElementById("colorFigura");
-    colorFigura ; 
+function cambiarColor() {
+    colorFigura = document.getElementById("CambiadorColor").value;
     console.log(colorFigura);
     svg.selectAll("circle").transition().style('fill', colorFigura);
+    svg.selectAll("rect").transition().style('fill', colorFigura);
 
+}
+
+function cambioTamanno() {
+    tamannoFigura = document.getElementById("tamanhoFigura").value;
+    console.log(tamannoFigura);
+
+    d3.select("lblTamanno").transition().text(tamannoFigura);
 }
 
 

@@ -9,6 +9,8 @@ var svgWidth = 900, svgHeight = 500;
 
 var colorFigura = "#ff00ff";
 
+var tamannoFigura = 20;
+
 var tipoDibujo = "burbujas";
 
 //Selecciono el svg

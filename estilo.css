@@ -53,10 +53,18 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 }
 
 #contenedor {
-    background-color:blue;
+    /*background-color:blue;*/
     width: 300px;
     height: 150px;
     position: absolute;
     margin-top: -505px;
-    margin-left: 600px;
+    margin-left: 599px;
+    border: 1px solid gray;
+
+}
+
+#btnColor{
+   margin-left:15px;
+   
+
 }
