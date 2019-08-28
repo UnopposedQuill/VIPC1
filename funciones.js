@@ -60,8 +60,8 @@ function redibujar() {
 function burbujas() {
     console.log("Burbujas");
     tipoDibujo = "burbujas";
-    svg.selectAll("circle").attr("visibility", "visible");
-    svg.selectAll("rect").attr("visibility", "hidden");
+    svg.selectAll("circle").transition().attr("visibility", "visible");
+    svg.selectAll("rect").transition().attr("visibility", "hidden");
     //redibujar();
 }
 
@@ -69,8 +69,8 @@ function burbujas() {
 function rectangulos() {
     console.log("Rectángulos");
     tipoDibujo = "rectangulos";
-    svg.selectAll("circle").attr("visibility", "hidden");
-    svg.selectAll("rect").attr("visibility", "visible");
+    svg.selectAll("circle").transition().attr("visibility", "hidden");
+    svg.selectAll("rect").transition().attr("visibility", "visible");
     //redibujar();
 }
 

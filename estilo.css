@@ -2,20 +2,45 @@
 /*
 Este es el archivo que muestra cómo se mostrará el html, usando css
 */
-.body{
-    font-family:sans-serif;
-}
 
+.header{
+    font-family:sans-serif;
+    color:white;
+}
 .visualizacion {
     background-color: #C7D9D9;
 }
 
-.figure {
+.figure{
     fill:orange;
 }
 
-.figure:hover {
+.figure:hover{
     fill:orangered;
+}
+
+.bubbles:checked .rectangulo{
+    visibility:hidden;
+}
+
+.rectangules:checked .burbujas{
+    visibility: hidden;
+}
+
+.rectangulo {
+    fill:orange;
+}
+
+.burbujas {
+    fill:orange;
+}
+
+.rectangulo:hover {
+    fill: orangered;
+}
+
+.burbujas:hover {
+    fill: orangered;
 }
 
 .d3-tip {
@@ -25,4 +50,12 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
     border-radius: 2px;
+}
+
+#contenedor {
+    background-color:blue;
+    width: 50%;
+    height: 50%;
+    /*margin-top: -10%;*/
+    hover:+100;
 }

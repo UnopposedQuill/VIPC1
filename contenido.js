@@ -80,7 +80,6 @@ Ahora finalmente colocar algunos elementos dentro del svg
 Para este objetivo definí una función que dibuja todos los elementos
 En el SVG
 */
-//redibujar();
 svg.selectAll("circle")
     .data(cantones)
     .enter()
@@ -94,7 +93,7 @@ svg.selectAll("circle")
     .attr("r", function (d) {
         return radioBase * radiusScale(d.densidad);
     })
-    .attr("class", "figure")
+    .attr("class", "burbujas")
     //Ahora que ya todo está en su lugar, agrego
     //los tooltips a cada una de las figuras colocadas
     .on("mouseover", tip.show)
@@ -116,7 +115,7 @@ svg.selectAll("rect")
     .attr("height", function (d) {
         return 5;
     })
-    .attr("class", "figure")
+    .attr("class", "rectangulo")
     .attr("visibility", "hidden")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
