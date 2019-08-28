@@ -81,3 +81,13 @@ function glifos() {
     redibujar();
 }
 
+
+function Color(){
+    var temp = document.getElementById("colorFigura");
+    colorFigura ; 
+    console.log(colorFigura);
+    svg.selectAll("circle").transition().style('fill', colorFigura);
+
+}
+
+

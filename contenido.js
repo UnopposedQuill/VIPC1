@@ -7,6 +7,8 @@ SVG significa Scalable Vector Graphics.
 */
 var svgWidth = 900, svgHeight = 500;
 
+var colorFigura = "#ff00ff";
+
 var tipoDibujo = "burbujas";
 
 //Selecciono el svg
