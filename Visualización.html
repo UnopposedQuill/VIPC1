@@ -1,60 +1,59 @@
 ﻿<!DOCTYPE html>
 <!-- Este es el archivo que se utiliza para abrir el contenido -->
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml">
-<head> <!-- La sección meta información del documento -->
-    <meta charset="utf-8" />
-    <!-- Esto define que para el estilo de la página se usará estilo.css -->
-    <link rel="stylesheet" href="estilo.css">
-    <title>Primer Proyecto Corto de Visualización de Información</title>
-</head>
-<body>
-    <h1 class="headers">Primer Proyecto Corto</h1>
-    <!-- Esto es para colocar justo aquí la Visualización hecha en d3, las
-    dimensiones se definieron dentro del archivo de javascript-->
-    <svg class="visualizacion"></svg><br>
-    
-    <div id="contenedor">
-        <input type="radio" name="nombreFigura" , value="Burbujas", class="bubbles", checked />Burbujas
-        <input type="radio" name="nombreFigura" , value="Rectángulos", class="rectangules"/>Rectangulos
-        <input type="radio" name="nombreFigura" , value="Glifos", class="gliphs"/>Glifos <br>
+    <head> <!-- La sección meta información del documento -->
+        <meta charset="utf-8" />
+        <!-- Esto define que para el estilo de la página se usará estilo.css -->
+        <link rel="stylesheet" href="estilo.css">
+        <title>Primer Proyecto Corto de Visualización de Información</title>
+    </head>
+    <body>
+        <h1 class="headers">Primer Proyecto Corto</h1>
+        <!-- Esto es para colocar justo aquí la Visualización hecha en d3, las
+        dimensiones se definieron dentro del archivo de javascript-->
+        <svg class="visualizacion"></svg><br>
         
-        Color de las figuras: <input type="color" id="CambiadorColor" value="#ff8000" onchange="cambiarColor()" /><br>
-      
-       <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
+        <div id="contenedor">
+            <input type="radio" name="nombreFigura" , value="Burbujas", class="bubbles", checked />Burbujas
+            <input type="radio" name="nombreFigura" , value="Rectángulos", class="rectangules"/>Rectangulos
+            <input type="radio" name="nombreFigura" , value="Glifos", class="gliphs"/>Glifos <br>
+            
+            Color de las figuras: <input type="color" id="CambiadorColor" value="#ff8000" onchange="cambiarColor()" /><br>
+          
+           <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
 
-        Tamaño de las figuras: <input type="range" id="tamanhoFigura" 
-        onchange="cambioTamanno()" , value="15" /><br>
+            Tamaño de las figuras: <input type="range" id="tamanhoFigura" 
+            onchange="cambioTamanno()" , value="15" /><br>
 
-        Tamaño: <label id="lblTamanno"> 15 </label> <br>
+            Tamaño: <label id="lblTamanno"> 15 </label> <br>
 
+        </div>
 
-    </div>
+        <!-- Necesito poder crear diferentes tipos de entradas-->
+        <!--
 
-    <!-- Necesito poder crear diferentes tipos de entradas-->
-    <!--
-
-    -->
-    <!-- Necesito poder modificar el svg en ejecución así que tengo que ir
-    definiendo botones, los cuales haré que hagan una función que haré en el
-    javascript-->
-    <button type="button" name="button" onclick="burbujas()">Burbujas</button>
-    <button type="button" name="button" onclick="rectangulos()">Rectángulos</button>
-    <button type="button" name="button" onclick="myFunction()">Glifos</button>
-    <button type="button" name="button" onclick="redibujar()">Refrescar</button>
-
-
-    <!-- Para importar la librería de d3 -->
-    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-    <!-- Para usar tooltips: https://github.com/VACLab/d3-tip-->
-    <script type="text/javascript" src="d3-tip.js"></script>
-    <!-- Para los datos-->
-    <script type="text/javascript" src="datos.js"></script>
-    <!-- Para las funciones auxiliares-->
-    <script type="text/javascript" src="funciones.js"></script>
-    <!-- Para modificar el svg utilizando javascript plano -->
-    <script type="text/javascript" src="contenido.js"></script>
+        -->
+        <!-- Necesito poder modificar el svg en ejecución así que tengo que ir
+        definiendo botones, los cuales haré que hagan una función que haré en el
+        javascript-->
+        <button type="button" name="button" onclick="burbujas()">Burbujas</button>
+        <button type="button" name="button" onclick="rectangulos()">Rectángulos</button>
+        <button type="button" name="button" onclick="myFunction()">Glifos</button>
+        <button type="button" name="button" onclick="redibujar()">Refrescar</button>
 
 
+        <!-- Para importar la librería de d3 -->
+        <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+        <!-- Para usar tooltips: https://github.com/VACLab/d3-tip-->
+        <script type="text/javascript" src="d3-tip.js"></script>
+        <!-- Para los datos-->
+        <script type="text/javascript" src="datos.js"></script>
+        <!-- Para las funciones auxiliares-->
+        <script type="text/javascript" src="funciones.js"></script>
+        <!-- Para modificar el svg utilizando javascript plano -->
+        <script type="text/javascript" src="contenido.js"></script>
 
-</body>
+
+
+    </body>
 </html>
