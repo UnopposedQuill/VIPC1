@@ -90,9 +90,26 @@ function cambiarColor() {
     
 
     svg.selectAll("circle").transition().style('fill', colorFigura);
-    svg.selectAll("rect").transition().style('fill', colorFigura);
+    svg.selectAll("rect").transition().style('fill', colorFigura)
+    .on("mouseover", function() {
+            d3.select(this)
+                .attr("fill", "red");
+        });
+
+    
+
 
 }
+
+function handleMouseOver() {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "orange",
+              r: radius * 2
+            });
+
+          }
 
 function cambioTamanno() {
     tamannoFigura = document.getElementById("tamanhoFigura").value;
@@ -142,6 +159,29 @@ function mostradorRectangulos() {
 
     svg.selectAll("circle").transition().attr("visibility", "hidden");
     
-    
-
 }
+
+function mostrarGraficoBarras(){
+
+    // Primero oculta a figura que se esta mostrando
+    //svg.selectAll("rect").transition().attr("visibility", "hidden");
+    svg.selectAll("circle").transition().attr("visibility", "hidden");
+
+   
+    var barChart = svg.selectAll("rect")
+        .data(cantones)
+        .enter()
+        .append("rect")
+        .attr("y", function(d) {
+             return svgHeight - 5 
+        })
+        .attr("height", function(d) { 
+            return d.area; 
+        })
+        .attr("width", barWidth - 5)
+        .attr("transform", function (d, i) {
+            var translate = [barWidth * i, 0]; 
+            return "translate("+ translate +")";
+        });
+
+} 

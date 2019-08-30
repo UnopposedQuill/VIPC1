@@ -33,6 +33,7 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 
 .burbujas {
     fill:orange;
+
 }
 
 .rectangulo:hover {
@@ -40,7 +41,7 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 }
 
 .burbujas:hover {
-    fill: orangered;
+    fill: black;
 }
 
 .d3-tip {
