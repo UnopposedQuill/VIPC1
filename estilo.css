@@ -29,6 +29,7 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 
 .rectangulo {
     fill:orange;
+
 }
 
 .burbujas {
@@ -36,12 +37,12 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 
 }
 
-.rectangulo:hover {
+/*.rectangulo:hover {
     fill: orangered;
-}
+}*/
 
 .burbujas:hover {
-    fill: black;
+   fill: orangered;
 }
 
 .d3-tip {
@@ -52,6 +53,25 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
     color: #fff;
     border-radius: 2px;
 }
+
+.d3-tip:after{
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+.d3-tip.n:after{
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+
+}
+
 
 #contenedor {
     /*background-color:blue;*/

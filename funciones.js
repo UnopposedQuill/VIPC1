@@ -89,12 +89,8 @@ function cambiarColor() {
 
     
 
-    svg.selectAll("circle").transition().style('fill', colorFigura);
-    svg.selectAll("rect").transition().style('fill', colorFigura)
-    .on("mouseover", function() {
-            d3.select(this)
-                .attr("fill", "red");
-        });
+    svg.selectAll("circle").transition().style('fill', colorFigura) ;
+    svg.selectAll("rect").transition().style('fill', colorFigura);
 
     
 
@@ -112,8 +108,9 @@ function handleMouseOver() {  // Add interactivity
           }
 
 function cambioTamanno() {
+
     tamannoFigura = document.getElementById("tamanhoFigura").value;
-    tamannoFigura = parseInt(tamannoFigura) + 5 ;
+    tamannoFigura = parseInt(tamannoFigura) / 5 ;
     //console.log(d.densidad );
 
     //Cambio de tamaño a las Burbujas del grafico

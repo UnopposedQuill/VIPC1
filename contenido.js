@@ -125,4 +125,5 @@ svg.selectAll("rect")
     .attr("class", "rectangulo")
     .attr("visibility", "hidden")
     .on("mouseover", tip.show)
-    .on("mouseout", tip.hide);
+    .on("mouseout", tip.hide)
+    ;
