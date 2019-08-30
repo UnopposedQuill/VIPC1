@@ -1,5 +1,5 @@
 
-//Algunas funciones auxiliares que necesitÈ
+//Algunas funciones auxiliares que necesit√©
 function max(number1, number2) {
     if (number1 > number2) {
         return number1;
@@ -7,7 +7,7 @@ function max(number1, number2) {
     return number2;
 }
 
-//Esta funciÛn lo que har· es redibujar el gr·fico seg˙n los valores de las variables
+//Esta funci√≥n lo que har√° es redibujar el gr√°fico seg√∫n los valores de las variables
 function redibujar() {
     console.log("Redibujando");
     if (tipoDibujo === "burbujas") {
@@ -25,7 +25,7 @@ function redibujar() {
                 return radioBase * radiusScale(d.densidad);
             })
             .attr("class", "figure")
-            //Ahora que ya todo est· en su lugar, agrego
+            //Ahora que ya todo est√° en su lugar, agrego
             //los tooltips a cada una de las figuras colocadas
             .on("mouseover", tip.show)
             .on("mouseout", tip.hide);
@@ -56,7 +56,7 @@ function redibujar() {
     }
 }
 
-//Cambia el tipo de dibujo a burbujas, y luego llama a redibujar el gr·fico
+//Cambia el tipo de dibujo a burbujas, y luego llama a redibujar el gr√°fico
 function burbujas() {
     console.log("Burbujas");
     tipoDibujo = "burbujas";
@@ -65,16 +65,16 @@ function burbujas() {
     //redibujar();
 }
 
-//Cambia el tipo de dibujo a rect·ngulos, y luego llama a redibujar el gr·fico
+//Cambia el tipo de dibujo a rect√°ngulos, y luego llama a redibujar el gr√°fico
 function rectangulos() {
-    console.log("Rect·ngulos");
+    console.log("Rect√°ngulos");
     tipoDibujo = "rectangulos";
     svg.selectAll("circle").transition().attr("visibility", "hidden");
     svg.selectAll("rect").transition().attr("visibility", "visible");
     //redibujar();
 }
 
-//Cambia el tipo de dibujo a glifos, y luego llama a redibujar el gr·fico
+//Cambia el tipo de dibujo a glifos, y luego llama a redibujar el gr√°fico
 function glifos() {
     console.log("Glifos");
     tipoDibujo = "glifos";
@@ -83,8 +83,12 @@ function glifos() {
 
 
 function cambiarColor() {
+    //Busca el color dentro del componente CambiadorColor y se lo aplica
+    //los objetos dentro de la grafica
     colorFigura = document.getElementById("CambiadorColor").value;
-    console.log(colorFigura);
+
+    
+
     svg.selectAll("circle").transition().style('fill', colorFigura);
     svg.selectAll("rect").transition().style('fill', colorFigura);
 
@@ -92,9 +96,52 @@ function cambiarColor() {
 
 function cambioTamanno() {
     tamannoFigura = document.getElementById("tamanhoFigura").value;
-    console.log(tamannoFigura);
+    tamannoFigura = parseInt(tamannoFigura) + 5 ;
+    //console.log(d.densidad );
 
-    d3.select("lblTamanno").transition().text(tamannoFigura);
+    //Cambio de tama√±o a las Burbujas del grafico
+    svg.selectAll("circle").transition().attr("r", function (d) {
+                return tamannoFigura * radiusScale(d.densidad);
+            });
+
+    svg.selectAll("rect").transition().attr("width", function (d) {
+            return tamannoFigura ;
+
+    } ).attr("height", function (d) {
+            return (tamannoFigura) / 2 ;
+
+    } );
+
+     document.getElementById("lblTamanno").innerHTML = tamannoFigura;
+
+    /*svg.selectAll("circle")
+            .data(cantones)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+                return xScale(d.poblacion);*/
+
+}
+
+function mostradorBurbujas() {
+    tipoDibujo = document.getElementById("figuraBurbujas").value;
+    console.log(tipoDibujo);
+
+    svg.selectAll("circle").transition().attr("visibility", "visible");
+
+    svg.selectAll("rect").transition().attr("visibility", "hidden");
+
 }
 
 
+function mostradorRectangulos() {
+    tipoDibujo = document.getElementById("figuraRectangulos").value;
+    console.log(tipoDibujo);
+
+    svg.selectAll("rect").transition().attr("visibility", "visible");
+
+    svg.selectAll("circle").transition().attr("visibility", "hidden");
+    
+    
+
+}

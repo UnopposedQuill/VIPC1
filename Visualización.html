@@ -14,8 +14,11 @@
         <svg class="visualizacion"></svg><br>
         
         <div id="contenedor">
-            <input type="radio" name="nombreFigura" , value="Burbujas", class="bubbles", checked />Burbujas
-            <input type="radio" name="nombreFigura" , value="Rectángulos", class="rectangules"/>Rectangulos
+
+            <input type="radio" name="nombreFigura" id="figuraBurbujas" , value="Burbujas", class="bubbles" onchange = "mostradorBurbujas()", checked />Burbujas
+
+            <input type="radio" name="nombreFigura" id = "figuraRectangulos" , value="Rectángulos", class="rectangules " onchange = "mostradorRectangulos()" />Rectangulos
+
             <input type="radio" name="nombreFigura" , value="Glifos", class="gliphs"/>Glifos <br>
             
             Color de las figuras: <input type="color" id="CambiadorColor" value="#ff8000" onchange="cambiarColor()" /><br>

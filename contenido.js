@@ -84,6 +84,7 @@ Ahora finalmente colocar algunos elementos dentro del svg
 Para este objetivo definí una función que dibuja todos los elementos
 En el SVG
 */
+
 svg.selectAll("circle")
     .data(cantones)
     .enter()
