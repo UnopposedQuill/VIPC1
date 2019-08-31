@@ -107,5 +107,6 @@ var path = svg
         return d.nombre;
     })
     .attr('transform', function (d) { return 'translate(' + xScale(d.poblacion) + ',' + yScale(d.area) + ')'; })
+    .attr('stroke', 'black')
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
