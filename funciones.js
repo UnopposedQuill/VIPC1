@@ -100,7 +100,7 @@ function cambiarColor() {
     //los objetos dentro de la grafica
     colorFigura = document.getElementById("CambiadorColor").value;
 
-    svg.selectAll("path").transition().style('fill', colorFigura) ;
+    svg.selectAll(".figure").transition().style('fill', colorFigura) ;
 }
 
 //funcion encargado de cambiar el tamaño a las figuras
