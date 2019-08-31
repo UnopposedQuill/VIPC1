@@ -62,6 +62,7 @@ function burbujas() {
     tipoDibujo = "burbujas";
     svg.selectAll("circle").transition().attr("visibility", "visible");
     svg.selectAll("rect").transition().attr("visibility", "hidden");
+    svg.selectAll("diamond").transition().attr("visibility", "hidden");
     //redibujar();
 }
 
@@ -71,6 +72,18 @@ function rectangulos() {
     tipoDibujo = "rectangulos";
     svg.selectAll("circle").transition().attr("visibility", "hidden");
     svg.selectAll("rect").transition().attr("visibility", "visible");
+    svg.selectAll("diamond").transition().attr("visibility", "hidden");
+    //redibujar();
+}
+
+//Cambia el tipo de dibujo a burbujas, y luego llama a redibujar el gráfico
+function diamantes() {
+    console.log("Diamond");
+    tipoDibujo = "Diamond";
+    
+    svg.selectAll("circle").transition().attr("visibility", "hidden");
+    svg.selectAll("rect").transition().attr("visibility", "hidden");
+    svg.selectAll("diamond").transition().attr("visibility", "visible");
     //redibujar();
 }
 
@@ -92,21 +105,9 @@ function cambiarColor() {
     svg.selectAll("circle").transition().style('fill', colorFigura) ;
     svg.selectAll("rect").transition().style('fill', colorFigura);
 
-    
-
-
+    //svg.selectAll("diamond").transition().style('fill', colorFigura);
 }
-
-function handleMouseOver() {  // Add interactivity
-
-            // Use D3 to select element, change color and size
-            d3.select(this).attr({
-              fill: "orange",
-              r: radius * 2
-            });
-
-          }
-
+//funcion encargado de cambiar el tamaño a las figuras
 function cambioTamanno() {
 
     tamannoFigura = document.getElementById("tamanhoFigura").value;
@@ -126,6 +127,13 @@ function cambioTamanno() {
 
     } );
 
+    /*svg.selectAll("rect").transition().attr("width", function (d) {
+            return tamannoFigura ;
+
+    } ).attr("height", function (d) {
+            return tamannoFigura  ;
+
+    } );*/
      document.getElementById("lblTamanno").innerHTML = tamannoFigura;
 
     /*svg.selectAll("circle")

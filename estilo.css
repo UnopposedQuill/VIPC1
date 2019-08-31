@@ -37,6 +37,11 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 
 }
 
+.diamond{
+    fill:orange;
+
+}
+
 /*.rectangulo:hover {
     fill: orangered;
 }*/

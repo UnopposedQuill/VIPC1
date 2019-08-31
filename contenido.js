@@ -127,3 +127,24 @@ svg.selectAll("rect")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide)
     ;
+
+    svg.selectAll("diamond")
+    .data(cantones)
+    .enter()
+    .append("diamond")
+    .attr("x", function (d) {
+        return xScale(d.poblacion) - 5;
+    })
+    .attr("y", function (d) {
+        return yScale(d.area) - 25;
+    })
+    .attr("width", function (d) {
+        return 10;
+    })
+    .attr("height", function (d) {
+        return 5;
+    })
+    .attr("class", "diamond")
+    .on("mouseover", tip.show)
+    .on("mouseout", tip.hide)
+    ;
