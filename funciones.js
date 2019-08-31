@@ -100,13 +100,9 @@ function cambiarColor() {
     //los objetos dentro de la grafica
     colorFigura = document.getElementById("CambiadorColor").value;
 
-    
-
-    svg.selectAll("circle").transition().style('fill', colorFigura) ;
-    svg.selectAll("rect").transition().style('fill', colorFigura);
-
-    //svg.selectAll("diamond").transition().style('fill', colorFigura);
+    svg.selectAll("path").transition().style('fill', colorFigura) ;
 }
+
 //funcion encargado de cambiar el tamaño a las figuras
 function cambioTamanno() {
 
@@ -150,9 +146,8 @@ function mostradorBurbujas() {
     console.log(tipoDibujo);
 
     svg.selectAll("circle").transition().attr("visibility", "visible");
-
     svg.selectAll("rect").transition().attr("visibility", "hidden");
-
+    svg.selectAll("diamond").transition().attr("visibility", "hidden");
 }
 
 
@@ -161,9 +156,17 @@ function mostradorRectangulos() {
     console.log(tipoDibujo);
 
     svg.selectAll("rect").transition().attr("visibility", "visible");
-
     svg.selectAll("circle").transition().attr("visibility", "hidden");
-    
+    svg.selectAll("diamond").transition().attr("visibility", "hidden");
+}
+
+function mostradorDiamantes() {
+    tipoDibujo = document.getElementById("figuraDiamantes").value;
+    console.log(tipoDibujo);
+
+    svg.selectAll("rect").transition().attr("visibility", "hidden");
+    svg.selectAll("circle").transition().attr("visibility", "hidden");
+    svg.selectAll("diamond").transition().attr("visibility", "visible");
 }
 
 function mostrarGraficoBarras(){
@@ -189,4 +192,21 @@ function mostrarGraficoBarras(){
             return "translate("+ translate +")";
         });
 
-} 
+}
+
+function cambiarFigura(self) {
+    symbol.type(self.id);
+    path.attr('d', symbol);
+}
+
+//Esta es una implementación de una nueva figura
+var rectangulo = {
+    draw: function (context, size) {
+        context.moveTo(-size / 24, -size / 12)
+        context.lineTo( size / 24, -size / 12)
+        context.lineTo( size / 24,  size / 12)
+        context.lineTo(-size / 24,  size / 12)
+        context.lineTo(-size / 24, -size / 12)
+        context.closePath();
+    }
+}

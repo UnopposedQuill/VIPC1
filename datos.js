@@ -3,6 +3,10 @@
 //Tengo que colocar las variables del Xlsx suministrado en el repositorio aqu\u00ED:
 //https://es.wikipedia.org/wiki/Anexo:Cantones_de_Costa_Rica_por_poblaci\u00F3n
 var cantones = [
+    { nombre: "Dummy", poblacion: 12000, area: 300.00, densidad: 600.00 },
+    { nombre: "Dummy2", poblacion: 12000, area: 300.00, densidad: 600.00 },
+    /*Dos elementos dummies que serán sacrificados por un bug de d3*/
+
     { nombre: "San Jos\u00E9", poblacion: 288054, area: 44.62, densidad: 6445.71 },
     { nombre: "Alajuela", poblacion: 254886, area: 388.43, densidad: 656.20 },
     { nombre: "Desamparados", poblacion: 208411, area: 118.26, densidad: 1751.31 },
