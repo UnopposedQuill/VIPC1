@@ -68,11 +68,11 @@ function cambiarFigura(self) {
 //Esta es una implementación de una nueva figura
 var rectangulo = {
     draw: function (context, size) {
-        context.moveTo(-size / 24, -size / 12)
-        context.lineTo( size / 24, -size / 12)
-        context.lineTo( size / 24,  size / 12)
-        context.lineTo(-size / 24,  size / 12)
-        context.lineTo(-size / 24, -size / 12)
+        context.moveTo(-size / 20, -size / 30)
+        context.lineTo( size / 20, -size / 30)
+        context.lineTo( size / 20,  size / 30)
+        context.lineTo(-size / 20,  size / 30)
+        context.lineTo(-size / 20, -size / 30)
         context.closePath();
     }
 }

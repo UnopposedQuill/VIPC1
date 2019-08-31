@@ -38,11 +38,12 @@ Para esto declaro una variable que luego multiplicaré con el tamaño base de la
 Para esto defino una variable que me diga el radio mínimo, el radio máximo, y finalmente el tamaño base.
 */
 var multiplicadorMaximo = 10; //Estas dos variables se podrá modificar en ejecución
-var tamanhoBase = 45;
+var valorSlider = document.getElementById('tamanhoFigura').value;
+var tamanhoBase = parseInt(valorSlider);
 
 var sizeScale = d3.scaleLinear()
     .domain([d3.min(densidades), d3.max(densidades)])
-    .range([1,multiplicadorMaximo]);
+    .range([5,multiplicadorMaximo]);
 
 //Ahora defino los dos ejes
 var eje_x = d3.axisBottom()
