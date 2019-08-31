@@ -37,7 +37,7 @@ Ahora necesito un nuevo escalador para evitar que una burbuja sea insignificante
 Para esto declaro una variable que luego multiplicaré con el tamaño base de las burbujas.
 Para esto defino una variable que me diga el radio mínimo, el radio máximo, y finalmente el tamaño base.
 */
-var multiplicadorMaximo = 5; //Estas dos variables se podrá modificar en ejecución
+var multiplicadorMaximo = 10; //Estas dos variables se podrá modificar en ejecución
 var tamanhoBase = 45;
 
 var sizeScale = d3.scaleLinear()

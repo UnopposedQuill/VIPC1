@@ -7,50 +7,25 @@ function max(number1, number2) {
     return number2;
 }
 
-function cambiarColor() {
+function cambiarColor(self) {
     //Busca el color dentro del componente CambiadorColor y se lo aplica
     //los objetos dentro de la grafica
-    colorFigura = document.getElementById("CambiadorColor").value;
-
-    svg.selectAll("path").transition().style('fill', colorFigura) ;
+    colorFigura = self.value;
+    path.style('fill', colorFigura);
 }
 
 //funcion encargado de cambiar el tamaño a las figuras
-function cambioTamanno() {
+function cambioTamanho(self) {
 
-    tamannoFigura = document.getElementById("tamanhoFigura").value;
-    tamannoFigura = parseInt(tamannoFigura) / 5 ;
-    //console.log(d.densidad );
+    valorSlider = self.value;
+    tamanhoFigura = parseInt(valorSlider);
 
     //Cambio de tamaño a las Burbujas del grafico
-    svg.selectAll("circle").transition().attr("r", function (d) {
-                return tamannoFigura * radiusScale(d.densidad);
-            });
-
-    svg.selectAll("rect").transition().attr("width", function (d) {
-            return tamannoFigura ;
-
-    } ).attr("height", function (d) {
-            return (tamannoFigura) / 2 ;
-
-    } );
-
-    /*svg.selectAll("rect").transition().attr("width", function (d) {
-            return tamannoFigura ;
-
-    } ).attr("height", function (d) {
-            return tamannoFigura  ;
-
-    } );*/
-     document.getElementById("lblTamanno").innerHTML = tamannoFigura;
-
-    /*svg.selectAll("circle")
-            .data(cantones)
-            .enter()
-            .append("circle")
-            .attr("cx", function (d) {
-                return xScale(d.poblacion);*/
-
+    symbol.size(function (d) {
+        return tamanhoFigura * sizeScale(d.densidad);
+    });
+    path.attr('d', symbol);
+    document.getElementById("lblTamanno").innerHTML = tamanhoFigura;
 }
 
 function mostrarGraficoBarras(){
