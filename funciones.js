@@ -29,9 +29,18 @@ function cambioTamanho(self) {
 }
 
 function mostrar3d(){
-    path.style("fill","url(#gradient)")
+    if(mi3d=="off"){
+        path.style("fill","url(#gradient)")
+        .attr('fill-opacity', 0.9);
+        mi3d="on";
+    }
+    else{
+        colorFigura = document.getElementById("CambiadorColor").value;
+            path.attr('fill-opacity', 0.4)
+            .style("fill", colorFigura);
+            mi3d="off";
+    }
     
-    .attr('fill-opacity', 0.9);
 }
 
 function mostrarGraficoBarras(){
