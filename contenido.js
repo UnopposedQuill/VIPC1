@@ -9,7 +9,7 @@ var svgWidth = 900, svgHeight = 500;
 
 var barWidth = (svgWidth / cantones.length);
 
-var colorFigura = "#ff00ff";
+var colorFigura = "#80ff00";
 
 var tamannoFigura = 20;
 
@@ -110,10 +110,18 @@ var path = svg
     .attr('stroke', 'black')
     .attr('fill-opacity', 0.4)
     .on("mouseover", function(d,i){
-        d3.select(this)
-        .attr('fill-opacity', 1.0)
-        .style("fill","black");
-        ;
+        if(mi3d=="off"){
+            d3.select(this)
+            .attr('fill-opacity', 1.0)
+            .style("fill","black");
+            ;
+        }
+        else{
+            d3.select(this)
+            .attr('fill-opacity', 0.8)
+            .style("fill","white");
+            ;   
+        }
         
         document.getElementById("infoNombre").innerHTML = d.nombre;
         document.getElementById("infoPoblacion").innerHTML = d.poblacion;
@@ -122,11 +130,19 @@ var path = svg
         tip.show;
     })
     .on("mouseout", function(d,i){
-      
-        colorFigura = document.getElementById("CambiadorColor").value;
-
-         d3.select(this).attr('fill-opacity', 0.4)
+        
+        if(mi3d=="off"){
+            colorFigura = document.getElementById("CambiadorColor").value;
+            d3.select(this).attr('fill-opacity', 0.4)
             .style("fill", colorFigura);
+        }
+        else{
+            path.style("fill","url(#gradient)")
+            .attr('fill-opacity', 0.9);
+            mi3d="on";
+
+        }
+
     });
 
     var gradient = svg.append("svg:defs")
@@ -151,3 +167,5 @@ var path = svg
         .attr("offset", "100%")
         .attr("stop-color", "black")
     .attr("stop-opacity", 1);
+
+    var mi3d="off";
