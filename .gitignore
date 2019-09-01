@@ -1,2 +1,6 @@
 # Ignorar vs
 .vs/
+
+# Ignorar el compreso
+*.zip
+
