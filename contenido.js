@@ -37,12 +37,13 @@ Ahora necesito un nuevo escalador para evitar que una burbuja sea insignificante
 Para esto declaro una variable que luego multiplicaré con el tamaño base de las burbujas.
 Para esto defino una variable que me diga el radio mínimo, el radio máximo, y finalmente el tamaño base.
 */
-var multiplicadorMaximo = 5; //Estas dos variables se podrá modificar en ejecución
-var tamanhoBase = 45;
+var multiplicadorMaximo = 10; //Estas dos variables se podrá modificar en ejecución
+var valorSlider = document.getElementById('tamanhoFigura').value;
+var tamanhoBase = parseInt(valorSlider);
 
 var sizeScale = d3.scaleLinear()
     .domain([d3.min(densidades), d3.max(densidades)])
-    .range([1,multiplicadorMaximo]);
+    .range([5,multiplicadorMaximo]);
 
 //Ahora defino los dos ejes
 var eje_x = d3.axisBottom()
@@ -106,5 +107,24 @@ var path = svg
         return d.nombre;
     })
     .attr('transform', function (d) { return 'translate(' + xScale(d.poblacion) + ',' + yScale(d.area) + ')'; })
-    .on("mouseover", tip.show)
-    .on("mouseout", tip.hide);
+    .attr('stroke', 'black')
+    .attr('fill-opacity', 0.4)
+    .on("mouseover", function(d,i){
+        d3.select(this)
+        .attr('fill-opacity', 1.0)
+        .style("fill","black");
+        ;
+        
+        document.getElementById("infoNombre").innerHTML = d.nombre;
+        document.getElementById("infoPoblacion").innerHTML = d.poblacion;
+        document.getElementById("infoArea").innerHTML = d.area;
+        document.getElementById("infoDensidad").innerHTML = d.densidad;
+        tip.show;
+    })
+    .on("mouseout", function(d){
+        tip.hide;
+         colorFigura = document.getElementById("CambiadorColor").value;
+
+        path.attr('fill-opacity', 0.4)
+        .style("fill",colorFigura);
+    });

@@ -12,43 +12,10 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 }
 
 .figure{
-    fill:orange;
+    fill:#80ff00;
 }
 
-.figure:hover{
-    fill:orangered;
-}
 
-.bubbles:checked .rectangulo{
-    visibility:hidden;
-}
-
-.rectangules:checked .burbujas{
-    visibility: hidden;
-}
-
-.rectangulo {
-    fill:orange;
-
-}
-
-.burbujas {
-    fill:orange;
-
-}
-
-.diamond{
-    fill:orange;
-
-}
-
-/*.rectangulo:hover {
-    fill: orangered;
-}*/
-
-.burbujas:hover {
-   fill: orangered;
-}
 
 .d3-tip {
     line-height: 1;
@@ -86,11 +53,25 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
     margin-top: -505px;
     margin-left: 599px;
     border: 1px solid gray;
+    background-color: rgba(0,0,0,0.4);
 
 }
 
 #btnColor{
    margin-left:15px;
-   
+}
+
+#mostrarInfo{
+    width: 300px;
+    height: 75px;
+    position: absolute;
+    margin-top: -355px;
+    margin-left: 599px;
+    border: 1px solid gray;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.mostradorInfo{
+    color: rgb(255,0,0);
 
 }

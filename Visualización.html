@@ -15,40 +15,42 @@
         
         <div id="contenedor">
 
-            <input type="radio" name="nombreFigura" id="figuraBurbujas" , value="Burbujas", class="bubbles" onchange = "mostradorBurbujas()", checked />Burbujas
+            <input type="radio" name="nombreFigura" id="figuraBurbujas" , value="Burbujas", class="bubbles" onchange = "cambiarFigura(this)", checked />Burbujas
 
-            <input type="radio" name="nombreFigura" id = "figuraRectangulos" , value="Rectángulos", class="rectangules " onchange = "mostradorRectangulos()" />Rectangulos
+            <input type="radio" name="nombreFigura" id = "figuraRectangulos" , value="Rectángulos", class="rectangules " onchange = "cambiarFigura(this)" />Rectangulos
 
-            <input type="radio" name="nombreFigura" id = "figuraDiamantes" , value="Glifos", class="gliphs"  onchange = "mostradorDiamantes()"/>Glifos 
+            <input type="radio" name="nombreFigura" id = "figuraDiamantes" , value="Glifos", class="gliphs"  onchange = "cambiarFigura(this)"/>Glifos 
             <br>
 
             <input type="radio" name="nombreFigura"  id = "graficoBarras" , value="graficoBarras",  onchange = "mostrarGraficoBarras()" /> Grafico Barras
 
             <br>
             
-            Color de las figuras: <input type="color" id="CambiadorColor" value="#ff8000" onchange="cambiarColor()" /><br>
+            Color de las figuras: <input type="color" id="CambiadorColor" value="#80ff00" onchange="cambiarColor(this)" /><br>
           
            <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
 
             Tamaño de las figuras: <input type="range" id="tamanhoFigura" 
-            onchange="cambioTamanno()" , value="15" /><br>
+            onchange="cambioTamanho(this)" , value="25" max="50" min="10"/><br>
 
-            Tamaño: <label id="lblTamanno"> 15 </label> <br>
+            Tamaño: <label id="lblTamanno"> 25 </label> <br>
 
         </div>
 
-        <!-- Necesito poder crear diferentes tipos de entradas-->
-        <!--
+        <div id = "mostrarInfo">
+            <strong style='color:white'>Canton: </strong>
+            <label id="infoNombre" class="mostradorInfo"></label><br>
 
-        -->
-        <!-- Necesito poder modificar el svg en ejecución así que tengo que ir
-        definiendo botones, los cuales haré que hagan una función que haré en el
-        javascript-->
-        <button type="button" name="button" onclick="burbujas()">Burbujas</button>
-        <button type="button" name="button" onclick="rectangulos()">Rectángulos</button>
-        <button type="button" name="button" onclick="myFunction()">Glifos</button>
-        <button type="button" name="button" onclick="redibujar()">Refrescar</button>
+            <strong style='color:white'>Poblacion: </strong>
+            <label id="infoPoblacion" class="mostradorInfo"></label><br>
 
+            <strong style='color:white'>Area: </strong>
+            <label id="infoArea" class="mostradorInfo"></label><br>
+
+            <strong style='color:white'>Densidad: </strong>
+            <label id="infoDensidad" class="mostradorInfo"></label><br>
+
+        </div>
 
         <!-- Para importar la librería de d3 -->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
