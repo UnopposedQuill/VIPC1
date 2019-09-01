@@ -26,7 +26,7 @@
 
             <br>
             
-            Color de las figuras: <input type="color" id="CambiadorColor" value="#ff8000" onchange="cambiarColor(this)" /><br>
+            Color de las figuras: <input type="color" id="CambiadorColor" value="#80ff00" onchange="cambiarColor(this)" /><br>
           
            <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
 
@@ -34,6 +34,21 @@
             onchange="cambioTamanho(this)" , value="25" max="50" min="10"/><br>
 
             Tamaño: <label id="lblTamanno"> 25 </label> <br>
+
+        </div>
+
+        <div id = "mostrarInfo">
+            <strong style='color:white'>Canton: </strong>
+            <label id="infoNombre" class="mostradorInfo"></label><br>
+
+            <strong style='color:white'>Poblacion: </strong>
+            <label id="infoPoblacion" class="mostradorInfo"></label><br>
+
+            <strong style='color:white'>Area: </strong>
+            <label id="infoArea" class="mostradorInfo"></label><br>
+
+            <strong style='color:white'>Densidad: </strong>
+            <label id="infoDensidad" class="mostradorInfo"></label><br>
 
         </div>
 

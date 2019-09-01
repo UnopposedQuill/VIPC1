@@ -108,5 +108,31 @@ var path = svg
     })
     .attr('transform', function (d) { return 'translate(' + xScale(d.poblacion) + ',' + yScale(d.area) + ')'; })
     .attr('stroke', 'black')
-    .on("mouseover", tip.show)
-    .on("mouseout", tip.hide);
+    .attr('fill-opacity', 0.4)
+    .on("mouseover", function(d,i){
+        d3.select(this)
+        .attr('fill-opacity', 1.0)
+        .style("fill","black");
+        ;
+        
+        document.getElementById("infoNombre").innerHTML = d.nombre;
+        document.getElementById("infoPoblacion").innerHTML = d.poblacion;
+        document.getElementById("infoArea").innerHTML = d.area;
+        document.getElementById("infoDensidad").innerHTML = d.densidad;
+
+
+        tip.show;
+    })
+    .on("mouseout", function(d){
+        tip.hide;
+         colorFigura = document.getElementById("CambiadorColor").value;
+
+        path.attr('fill-opacity', 0.4)
+        .style("fill",colorFigura);
+
+       
+
+
+
+    }
+    );

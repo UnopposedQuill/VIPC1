@@ -76,3 +76,11 @@ var rectangulo = {
         context.closePath();
     }
 }
+
+function transparenciaIN(){
+    tip.show;
+    path.attr('fill-opacity', 0.4);
+
+
+
+}
