@@ -83,7 +83,14 @@ var rectangulo = {
     }
 }
 
-function transparenciaIN(){
+//Esta es otra implementación de una nueva figura
+var barra = {
+    draw: function (context, size) {
+
+    }
+}
+
+function transparenciaIN() {
     tip.show;
     path.attr('fill-opacity', 0.4);
 }
