@@ -8,52 +8,58 @@
         <title>Primer Proyecto Corto de Visualización de Información</title>
     </head>
     <body>
-        <h1 class="headers">Primer Proyecto Corto</h1>
+        <h1 class="headers">Información de cantones de Costa Rica</h1>
         <!-- Esto es para colocar justo aquí la Visualización hecha en d3, las
         dimensiones se definieron dentro del archivo de javascript-->
-        <svg class="visualizacion"></svg><br>
         
-        <div id="contenedor">
-
-            <input type="radio" name="nombreFigura" id="figuraBurbujas" , value="Burbujas", class="bubbles" onchange = "cambiarFigura(this)", checked />Burbujas
-
-            <input type="radio" name="nombreFigura" id = "figuraRectangulos" , value="Rectángulos", class="rectangules " onchange = "cambiarFigura(this)" />Rectangulos
-
-            <input type="radio" name="nombreFigura" id = "figuraDiamantes" , value="Glifos", class="gliphs"  onchange = "cambiarFigura(this)"/>Glifos 
-            <br>
-
-            <input type="radio" name="nombreFigura"  id = "graficoBarras" , value="graficoBarras",  onchange = "cambiarFigura(this)" /> Grafico Barras
-
-            <input type="checkbox" name="nombreFigura"  id = "3DE" , value="3D",  onchange = "mostrar3d()" /> Efecto 3D
-
-            <br>
+        <div id = "cuerpo">
+            <svg class="visualizacion"></svg><br>
             
-            Color de las figuras: <input type="color" id="CambiadorColor" value="#80ff00" onchange="cambiarColor(this)" /><br>
-          
-           <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
+            <div id="contenedor">
 
-            Tamaño de las figuras: <input type="range" id="tamanhoFigura" 
-            onchange="cambioTamanho(this)" , value="25" max="50" min="10"/><br>
+                <input type="radio" name="nombreFigura" id="figuraBurbujas" , value="Burbujas", class="bubbles" onchange = "cambiarFigura(this)", checked />Burbujas
 
-            Tamaño: <label id="lblTamanno"> 25 </label> <br>
+                <input type="radio" name="nombreFigura" id = "figuraRectangulos" , value="Rectángulos", class="rectangules " onchange = "cambiarFigura(this)" />Rectangulos
 
+                <input type="radio" name="nombreFigura" id = "figuraDiamantes" , value="Glifos", class="gliphs"  onchange = "cambiarFigura(this)"/>Glifos 
+                <br>
+
+                <input type="radio" name="nombreFigura"  id = "graficoBarras" , value="graficoBarras",  onchange = "cambiarFigura(this)" /> Grafico Barras
+
+                <br>
+
+                <input type="checkbox" name="nombreFigura"  id = "3DE" , value="3D",  onchange = "mostrar3d()" /> Efecto 3D
+
+                <input type="checkbox" name="nombreFigura"  id = "brillos" , value="brillo",  onchange = "mostrarBrillo()" /> Brillo
+
+                <br>
+                
+                Color de las figuras: <input type="color" id="CambiadorColor" value="#80ff00" onchange="cambiarColor(this)" /><br>
+              
+               <!-- <button type="button" id="btnColor" onclick="cambiarColor()"  align="center" > Cambiar color</button> <br>-->
+
+                Tamaño de las figuras: <input type="range" id="tamanhoFigura" 
+                onchange="cambioTamanho(this)" , value="25" max="50" min="10"/><br>
+
+                Tamaño: <label id="lblTamanno"> 25 </label> <br>
+
+            </div>
+
+            <div id = "mostrarInfo">
+                <strong style='color:white'>Canton: </strong>
+                <label id="infoNombre" class="mostradorInfo"></label><br>
+
+                <strong style='color:white'>Poblacion: </strong>
+                <label id="infoPoblacion" class="mostradorInfo"></label><br>
+
+                <strong style='color:white'>Area: </strong>
+                <label id="infoArea" class="mostradorInfo"></label><br>
+
+                <strong style='color:white'>Densidad: </strong>
+                <label id="infoDensidad" class="mostradorInfo"></label><br>
+
+            </div>
         </div>
-
-        <div id = "mostrarInfo">
-            <strong style='color:white'>Canton: </strong>
-            <label id="infoNombre" class="mostradorInfo"></label><br>
-
-            <strong style='color:white'>Poblacion: </strong>
-            <label id="infoPoblacion" class="mostradorInfo"></label><br>
-
-            <strong style='color:white'>Area: </strong>
-            <label id="infoArea" class="mostradorInfo"></label><br>
-
-            <strong style='color:white'>Densidad: </strong>
-            <label id="infoDensidad" class="mostradorInfo"></label><br>
-
-        </div>
-
         <!-- Para importar la librería de d3 -->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
         <!-- Para usar tooltips: https://github.com/VACLab/d3-tip-->
@@ -65,4 +71,9 @@
         <!-- Para modificar el svg utilizando javascript plano -->
         <script type="text/javascript" src="contenido.js"></script>
     </body>
+
+    <footer>
+            <h4 class="piePag">Informacion a tomar encuenta</h4>
+            <p class="piePag">La informacion brindada y desplegada es de el censo de repoblaccenso con fecha de Noviebre del año 2011</p>
+    </footer>
 </html>

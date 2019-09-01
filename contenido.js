@@ -116,12 +116,14 @@ var path = svg
     .on("mouseover", function(d,i){
         if(mi3d=="off"){
             d3.select(this)
+            .transition()
             .attr('fill-opacity', 1.0)
             .style("fill","black");
             ;
         }
         else{
             d3.select(this)
+            .transition()
             .attr('fill-opacity', 0.8)
             .style("fill","white");
             ;   
@@ -137,15 +139,22 @@ var path = svg
         
         if(mi3d=="off"){
             colorFigura = document.getElementById("CambiadorColor").value;
-            d3.select(this).attr('fill-opacity', 0.4)
-            .style("fill", colorFigura);
+            
+            if(brilloFiguras=="off"){
+                d3.select(this).transition().attr('fill-opacity', 0.4)
+                .style("fill", colorFigura);
+            }
+            else{
+                d3.select(this).transition().attr('fill-opacity', 0.9)
+                .style("fill", colorFigura);
+            }
         }
         else{
-            path.style("fill","url(#gradient)")
+            path.transition().style("fill","url(#gradient)")
             .attr('fill-opacity', 0.9);
             mi3d="on";
-
         }
+
 
     });
 
@@ -173,3 +182,5 @@ var path = svg
     .attr("stop-opacity", 1);
 
     var mi3d="off";
+
+    var brilloFiguras="off";

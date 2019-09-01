@@ -9,6 +9,7 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 }
 .visualizacion {
     background-color: #C7D9D9;
+    margin-top: 15px;
 }
 
 .figure{
@@ -74,4 +75,44 @@ Este es el archivo que muestra cómo se mostrará el html, usando css
 .mostradorInfo{
     color: rgb(255,0,0);
 
+}
+
+body{
+    background-image: url("full-bloom.png");
+    /*text-align: center;*/
+}
+
+h1{
+     text-align: center;
+     color: rgb(110,110,110);
+     background-color: rgba(220,220,220,0.6);
+     width: 100%;
+}
+
+#cuerpo{
+    background-color: rgba(220,220,220,0.7);
+    height: 600px;
+    width: 80%;
+     
+    min-width: 910px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+footer{
+     background-color: rgba(50,50,50,0.5);
+     height: 75px;
+     width: 97%;
+
+    min-width: 910px;
+    position: fixed;
+     bottom: 0;             
+}
+
+
+
+.piePag{
+    color: white;
+    margin-top: 5px;
 }
