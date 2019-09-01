@@ -21,11 +21,31 @@ function cambioTamanho(self) {
     tamanhoFigura = parseInt(valorSlider);
 
     //Cambio de tamaño a las Burbujas del grafico
-    symbol.size(function (d) {
-        return tamanhoFigura * sizeScale(d.densidad);
-    });
-    path.attr('d', symbol);
+    
+
+    var valorRadio = document.getElementById("graficoBarras").value;
+    if (valorRadio) {
+        var symbolGenerator = d3.symbol()
+            .type(barra)
+            .size(function (d) {//Area: X, Densidad: Y
+                var number = -1;
+                if (d.area === Math.max([d.area, d.densidad])) {
+                    number = Math.pow(d.area, 2) + d.area + d.densidad;
+                } else {
+                    number = Math.pow(d.densidad, 2) + d.area;
+                }
+                return tamannoFigura * barSizeScale(number);
+            });
+        svg.selectAll(".figure").attr('d', symbolGenerator);
+    } else {
+        symbol.size(function (d) {
+            return tamanhoFigura * sizeScale(d.densidad);
+        });
+        path.attr('d', symbol);
+    }
     document.getElementById("lblTamanno").innerHTML = tamanhoFigura;
+
+    
 }
 
 function mostrar3d(){
@@ -43,41 +63,33 @@ function mostrar3d(){
     
 }
 
-function mostrarGraficoBarras(){
-
-    // Primero oculta a figura que se esta mostrando
-    //svg.selectAll("rect").transition().attr("visibility", "hidden");
-    svg.selectAll("circle").transition().attr("visibility", "hidden");
-
-   
-    var barChart = svg.selectAll("rect")
-        .data(cantones)
-        .enter()
-        .append("rect")
-        .attr("y", function(d) {
-             return svgHeight - 5 
-        })
-        .attr("height", function(d) { 
-            return d.area; 
-        })
-        .attr("width", barWidth - 5)
-        .attr("transform", function (d, i) {
-            var translate = [barWidth * i, 0]; 
-            return "translate("+ translate +")";
-        });
-
-}
-
 //Esta función se llama al cambiar alguno de los botones de radios
 function cambiarFigura(self) {
-    if (self.id === "figuraBurbujas") {
-        symbol.type(d3.symbolCircle);
-    } else if (self.id === "figuraRectangulos") {
-        symbol.type(rectangulo);
-    } else if (self.id === "figuraDiamantes") {
-        symbol.type(d3.symbolDiamond);
+    if (self.id === "graficoBarras") {
+        var symbolGenerator = d3.symbol()
+            .type(barra)
+            .size(function (d) {//Area: X, Densidad: Y
+                var number = -1;
+                if (d.area === Math.max([d.area, d.densidad])) {
+                    number = Math.pow(d.area, 2) + d.area + d.densidad;
+                } else {
+                    number = Math.pow(d.densidad, 2) + d.area;
+                }
+                return tamanhoBase * barSizeScale(number);
+            });
+        svg.selectAll(".figure").attr('d', symbolGenerator);
+    } else {
+        if(self.id === "figuraBurbujas") {
+            symbol.type(d3.symbolCircle);
+        } else if (self.id === "figuraRectangulos") {
+            symbol.type(rectangulo);
+        } else if (self.id === "figuraDiamantes") {
+            symbol.type(d3.symbolDiamond);
+        } else if (self.id === "graficoBarras") {
+            symbol.type(barra);
+        }
+        path.attr('d', symbol);
     }
-    path.attr('d', symbol);
 }
 
 //Esta es una implementación de una nueva figura
@@ -95,7 +107,20 @@ var rectangulo = {
 //Esta es otra implementación de una nueva figura
 var barra = {
     draw: function (context, size) {
-
+        var densidad = 0;
+        var valorArea = 0;//Area: X, Densidad: Y, Size: Z
+        if (size - Math.pow(Math.floor(Math.sqrt(size)),2) < Math.floor(Math.sqrt(size))) {
+            densidad = size - Math.pow(Math.floor(Math.sqrt(size)),2);
+            valorArea = Math.floor(Math.sqrt(size));
+        } else {
+            densidad = Math.floor(Math.sqrt(size));
+            valorArea = size - Math.pow(Math.floor(Math.sqrt(size)),2) - Math.floor(Math.sqrt(size));
+        }
+        context.moveTo(-densidad / 2, valorArea)
+        context.lineTo( densidad / 2, valorArea)
+        context.lineTo( densidad / 2, 0)
+        context.lineTo(-densidad / 2, 0)
+        context.lineTo(-densidad / 2, valorArea)
     }
 }
 

@@ -43,7 +43,11 @@ var tamanhoBase = parseInt(valorSlider);
 
 var sizeScale = d3.scaleLinear()
     .domain([d3.min(densidades), d3.max(densidades)])
-    .range([5,multiplicadorMaximo]);
+    .range([5, multiplicadorMaximo]);
+
+var barSizeScale = d3.scaleLinear()
+    .domain([d3.min(densidades), d3.max(densidades)])
+    .range([1, 2]);
 
 //Ahora defino los dos ejes
 var eje_x = d3.axisBottom()
