@@ -23,7 +23,7 @@ function cambioTamanho(self) {
     //Cambio de tamaño a las Burbujas del grafico
     
 
-    var valorRadio = document.getElementById("graficoBarras").value;
+    var valorRadio = document.getElementById("graficoBarras").checked;
     if (valorRadio) {
         var symbolGenerator = d3.symbol()
             .type(barra)
