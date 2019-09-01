@@ -121,10 +121,33 @@ var path = svg
         document.getElementById("infoDensidad").innerHTML = d.densidad;
         tip.show;
     })
-    .on("mouseout", function(d){
-        tip.hide;
-         colorFigura = document.getElementById("CambiadorColor").value;
+    .on("mouseout", function(d,i){
+      
+        colorFigura = document.getElementById("CambiadorColor").value;
 
-        path.attr('fill-opacity', 0.4)
-        .style("fill",colorFigura);
+         d3.select(this).attr('fill-opacity', 0.4)
+            .style("fill", colorFigura);
     });
+
+    var gradient = svg.append("svg:defs")
+    .append("svg:linearGradient")
+        .attr("id", "gradient")
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "100%")
+        .attr("y2", "100%")
+        .attr("spreadMethod", "pad");
+
+    gradient.append("svg:stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#AAffFF")
+        
+
+    gradient.append("svg:stop")
+        .attr("offset", "50%")
+        .attr("stop-color", "#0000FF")
+
+    gradient.append("svg:stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "black")
+    .attr("stop-opacity", 1);

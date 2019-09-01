@@ -28,6 +28,12 @@ function cambioTamanho(self) {
     document.getElementById("lblTamanno").innerHTML = tamanhoFigura;
 }
 
+function mostrar3d(){
+    path.style("fill","url(#gradient)")
+    
+    .attr('fill-opacity', 0.9);
+}
+
 function mostrarGraficoBarras(){
 
     // Primero oculta a figura que se esta mostrando
@@ -80,7 +86,4 @@ var rectangulo = {
 function transparenciaIN(){
     tip.show;
     path.attr('fill-opacity', 0.4);
-
-
-
 }
